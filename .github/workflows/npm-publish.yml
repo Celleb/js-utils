@@ -17,6 +17,8 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm test
+      - run: npm run build
+      - run: npm run package
 
   publish-npm:
     needs: build
@@ -28,7 +30,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: yarn run publish
+      - run: npm run publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
@@ -42,6 +44,6 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
-      - run: yarn run publish
+      - run: npm run publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

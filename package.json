@@ -4,10 +4,12 @@
   "description": "Typescript/Javascript utils",
   "main": " ",
   "scripts": {
-    "build": "npx tsc && yarn package",
+    "build": "npx tsc",
     "build:watch": "npx tsc --watch",
     "package": "node ./scripts/override-package.js",
-    "pub": "yarn build && yarn publish ./dist --access public",
+    "preversion": "npm run test",
+    "version": "npm run build && git add .",
+    "postversion": "git push && git push --tags",
     "test": "npx jest",
     "test:watch": "npx jest --watch"
   },
