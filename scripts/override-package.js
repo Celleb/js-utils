@@ -18,3 +18,6 @@ fs.writeFileSync(
     __dirname + '/../dist/package.json',
     JSON.stringify({ ...pkg, ...override }, null, 2)
 );
+console.log('copy read me');
+
+fs.copyFileSync(__dirname + '/../README.md', __dirname + '/../dist/README.md');
