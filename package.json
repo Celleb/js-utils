@@ -8,7 +8,7 @@
     "build:watch": "npx tsc --watch",
     "package": "node ./scripts/override-package.js",
     "preversion": "npm run test",
-    "version": "npm run build && git add .",
+    "version": "npm run build && npm run package && git add .",
     "postversion": "git push && git push --tags",
     "test": "npx jest",
     "test:watch": "npx jest --watch"
