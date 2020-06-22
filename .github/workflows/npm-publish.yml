@@ -8,7 +8,7 @@ on:
     types: [created]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,11 +17,9 @@ jobs:
           node-version: 12
       - run: npm i
       - run: npm test
-      - run: npm run build
-      - run: npm run package
 
   publish-npm:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -30,12 +28,14 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm i
+      - run: npm run build
+      - run: npm run package
       - run: npm publish ./dist --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   publish-gpr:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -44,6 +44,8 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - run: npm i
+      - run: npm run build
+      - run: npm run package
       - run: npm publish ./dist --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
