@@ -7,6 +7,7 @@
  */
 
 import * as omit from './omit';
+import * as transform from './transform';
 
-export const obj = { omit };
+export const obj = { omit, transform };
 export default obj;
