@@ -7,7 +7,7 @@
  * @license MIT
  */
 
-import { uniqueFilter } from './filters';
+import { uniqueFilter, filterUnique } from './filters';
 
 describe('filters', () => {
     describe('uniqueFilter', () => {
@@ -17,6 +17,16 @@ describe('filters', () => {
 
         it('must return unique value of an array', () => {
             expect([1, 2, 4, 5, 5, 5].filter(uniqueFilter).sort()).toEqual([1, 2, 4, 5]);
+        });
+    });
+
+    describe('filterUnique', () => {
+        it('must be defined', () => {
+            expect(filterUnique).toBeDefined;
+        });
+
+        it('returns an array with unique values', () => {
+            expect(filterUnique([1, 2, 4, 5, 5, 5]).sort()).toEqual([1, 2, 4, 5]);
         });
     });
 });

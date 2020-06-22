@@ -7,7 +7,29 @@
  * @license MIT
  */
 
-export function omit<T, K extends [...(keyof T)[]]>(
+/**
+ * Returns an object with the specified keys omitted
+ * @param obj
+ * @param keys
+ */
+export function omit<T extends Record<string | number, unknown>, K extends [...(keyof T)[]]>(
+    obj: T,
+    ...keys: K
+): { [P in Exclude<keyof T, K[number]>]: T[P] } {
+    return Object.keys(obj)
+        .map((key) => convertToNumbers(keys, key))
+        .filter((key) => !keys.includes(key))
+        .reduce((agg, key) => ({ ...agg, [key]: obj[key] }), {}) as {
+        [P in Exclude<keyof T, K[number]>]: T[P];
+    };
+}
+
+/**
+ * Extends omit to include symbol keys.
+ * @param obj
+ * @param keys
+ */
+export function omitExtra<T, K extends [...(keyof T)[]]>(
     obj: T,
     ...keys: K
 ): { [P in Exclude<keyof T, K[number]>]: T[P] } {

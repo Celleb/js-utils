@@ -7,6 +7,12 @@
  * @license MIT
  */
 
+/**
+ * Adds or update items of a collection based on the specified key
+ * @param key
+ * @param collection
+ * @param updates
+ */
 export function updateColl<T extends { [key: string]: any } = Record<string, any>>(
     key: keyof T,
     collection: T[],

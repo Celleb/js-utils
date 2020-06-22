@@ -6,13 +6,15 @@
  * All rights reserved
  */
 
-import { arrays } from './arrays';
+import arrays from './arrays';
 import coll from './coll';
 import utils from './utils';
+import obj from './obj';
 
 export { arrays, coll, utils };
 export default {
     arrays,
     coll,
+    obj,
     utils,
 };
