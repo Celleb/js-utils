@@ -1,0 +1,25 @@
+{
+  "name": "@celleb/js-utils",
+  "version": "1.0.0",
+  "description": "Typescript/Javascript utils",
+  "main": "./index.js",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Celleb/js-utils.git"
+  },
+  "keywords": [
+    "Typescript",
+    "Javascript",
+    "utils"
+  ],
+  "author": "Jonas <celleb@mrcelleb.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Celleb/js-utils/issues"
+  },
+  "homepage": "https://github.com/Celleb/js-utils/blob/master/README.md",
+  "types": "./index.d.ts"
+}
