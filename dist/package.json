@@ -1,6 +1,6 @@
 {
   "name": "@celleb/js-utils",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Typescript/Javascript utils",
   "main": "./index.js",
   "scripts": {},
