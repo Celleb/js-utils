@@ -7,7 +7,7 @@
  * @license MIT
  */
 
-import { stringSorter, sortStrings } from './sort';
+import { stringSorter, sortStrings, sortByReference } from './sort';
 
 describe('sort', () => {
     describe('stingSorter', () => {
@@ -27,6 +27,20 @@ describe('sort', () => {
 
         it('returns an array of alphabetically sorted strings', () => {
             expect(sortStrings(['a', 'b', '1', '5'])).toEqual(['1', '5', 'a', 'b']);
+        });
+    });
+
+    describe('sortByReference', () => {
+        it('must be defined', () => {
+            expect(sortByReference).toBeDefined;
+        });
+
+        it('sorts an array base on the order of the reference array', () => {
+            const input = ['name', 'lastName', 'faceTime', 'taxi'];
+            const order = ['faceTime', 'name'];
+            const expected = ['faceTime', 'name', 'lastName', 'taxi'];
+
+            expect(sortByReference(input, order)).toEqual(expected);
         });
     });
 });

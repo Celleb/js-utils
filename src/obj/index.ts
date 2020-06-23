@@ -8,6 +8,7 @@
 
 import * as omit from './omit';
 import * as transform from './transform';
+export * from './omit';
+export * from './transform';
 
-export const obj = { omit, transform };
-export default obj;
+export default { ...omit, ...transform };

@@ -64,6 +64,17 @@ import { sortStrings } from '@celleb/js-utils/arrays';
 sortStrings(['a', 'b', '1', '5']); // ['1', '5', 'a', 'b'];
 ```
 
+#### sortByReference
+
+Sort an array base on the order of the reference array.
+
+```javascript
+import { sortByReference } from '@celleb/js-utils/arrays';
+const order = ['faceTime', 'name'];
+const input = ['name', 'lastName', 'faceTime', 'taxi'];
+sortByReference(input, order)); // ['faceTime', 'name', 'lastName', 'taxi']
+```
+
 ### coll
 
 Utils for collections.
@@ -166,6 +177,19 @@ import { omitExtra } from '@celleb/js-utils/obj';
 const ID = Symbol('id');
 const data = { [ID]: 'one', id: 'one', city: 'Opuwo', country: 'Namibia' };
 omitExtra(data, ID, 'id'); // {city: 'Opuwo', country: 'Namibia'}
+```
+
+#### shallowTransform
+
+Transforms the keys of the input object to the values of the given dictionary.
+
+Example
+
+```javascript
+import { shallowTransform } from '@celleb/js-utils/obj';
+const input = { town: 'Windhoek', state: 'Namibia' };
+const dictionary = { town: 'city', state: 'country' };
+shallowTransform(input, dictionary); // {city: 'Windhoek', country: 'Namibia'}
 ```
 
 ### utils
