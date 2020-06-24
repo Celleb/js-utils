@@ -9,6 +9,6 @@
 
 import * as filters from './filters';
 import * as sort from './sort';
-
-export const arrays = { ...filters, ...sort };
-export default arrays;
+export * from './filters';
+export * from './sort';
+export default { ...filters, ...sort };

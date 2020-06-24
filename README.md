@@ -17,8 +17,6 @@ Utils for arrays
 Usage:
 
 ```javascript
-import { arrays } from '@celleb/js-utils/arrays';
-//or
 import arrays from '@celleb/js-utils/arrays';
 // or
 import { arrays } from '@celleb/js-utils';
@@ -64,6 +62,17 @@ import { sortStrings } from '@celleb/js-utils/arrays';
 sortStrings(['a', 'b', '1', '5']); // ['1', '5', 'a', 'b'];
 ```
 
+#### sortByReference
+
+Sort an array base on the order of the reference array.
+
+```javascript
+import { sortByReference } from '@celleb/js-utils/arrays';
+const order = ['faceTime', 'name'];
+const input = ['name', 'lastName', 'faceTime', 'taxi'];
+sortByReference(input, order)); // ['faceTime', 'name', 'lastName', 'taxi']
+```
+
 ### coll
 
 Utils for collections.
@@ -72,8 +81,6 @@ A collection is an array of objects.
 Usage:
 
 ```javascript
-import { coll } from '@celleb/js-utils/coll';
-//or
 import coll from '@celleb/js-utils/coll';
 // or
 import { coll } from '@celleb/js-utils';
@@ -131,8 +138,6 @@ Utils for objects.
 Usage:
 
 ```javascript
-import { obj } from '@celleb/js-utils/obj';
-//or
 import obj from '@celleb/js-utils/obj';
 // or
 import { obj } from '@celleb/js-utils';
@@ -168,6 +173,19 @@ const data = { [ID]: 'one', id: 'one', city: 'Opuwo', country: 'Namibia' };
 omitExtra(data, ID, 'id'); // {city: 'Opuwo', country: 'Namibia'}
 ```
 
+#### shallowTransform
+
+Transforms the keys of the input object to the values of the given dictionary.
+
+Example
+
+```javascript
+import { shallowTransform } from '@celleb/js-utils/obj';
+const input = { town: 'Windhoek', state: 'Namibia' };
+const dictionary = { town: 'city', state: 'country' };
+shallowTransform(input, dictionary); // {city: 'Windhoek', country: 'Namibia'}
+```
+
 ### utils
 
 Additional utils
@@ -175,8 +193,6 @@ Additional utils
 Usage:
 
 ```javascript
-import { utils } from '@celleb/js-utils/utils';
-//or
 import utils from '@celleb/js-utils/utils';
 // or
 import { utils } from '@celleb/js-utils';
@@ -195,7 +211,7 @@ clone({ id: 3 }); // {id: 3}
 
 #### compare
 
-Returns true when the `stringify` value of to items are identical.
+Returns `true` when the `stringify` value of two items are identical.
 
 Example
 

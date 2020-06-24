@@ -9,6 +9,6 @@
 
 import * as filters from './filters';
 import * as updateColl from './update-coll';
-
-export const coll = { ...filters, ...updateColl };
-export default coll;
+export * from './filters';
+export * from './update-coll';
+export default { ...filters, ...updateColl };
