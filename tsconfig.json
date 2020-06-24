@@ -2,7 +2,7 @@
   "compileOnSave": true,
   "compilerOptions": {
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "outDir": "./dist",
     "module": "commonjs",
     "target": "ES2019",

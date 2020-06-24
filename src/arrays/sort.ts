@@ -23,3 +23,17 @@ export function stringSorter(a: string, b: string): number {
 export function sortStrings<T extends string>(items: T[]): T[] {
     return items.sort(stringSorter);
 }
+
+export function sortByReference<T extends string | number>(items: T[], ref: T[]): T[] {
+    return items.sort((a, b) => indexOf(ref, a) - indexOf(ref, b));
+}
+
+/**
+ * Returns the index of a value if exists, otherwise returns positive infinity
+ * @param items
+ * @param value
+ */
+function indexOf<T extends string | number>(items: T[], value: T): number {
+    const i = items.indexOf(value);
+    return i < 0 ? Infinity : i;
+}
