@@ -1,13 +1,15 @@
 /**
- * index.ts
+ * index
  *
- * @author Jonas Tomanga <celleb@logicpp.com.na>
- * @copyright (c) 2020 Logic Plus Information Technologies CC
+ * @author Jonas Tomanga <celleb@mrcelleb.com>
+ * @copyright (c) 2020 Jonas Tomanga
  * All rights reserved
+ * @license MIT
  */
 
 import * as clone from './clone';
 import * as compare from './compare';
+export * from './clone';
+export * from './compare';
 
-export const utils = { ...clone, ...compare };
-export default utils;
+export default { ...clone, ...compare };
