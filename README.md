@@ -17,8 +17,6 @@ Utils for arrays
 Usage:
 
 ```javascript
-import { arrays } from '@celleb/js-utils/arrays';
-//or
 import arrays from '@celleb/js-utils/arrays';
 // or
 import { arrays } from '@celleb/js-utils';
@@ -83,8 +81,6 @@ A collection is an array of objects.
 Usage:
 
 ```javascript
-import { coll } from '@celleb/js-utils/coll';
-//or
 import coll from '@celleb/js-utils/coll';
 // or
 import { coll } from '@celleb/js-utils';
@@ -142,8 +138,6 @@ Utils for objects.
 Usage:
 
 ```javascript
-import { obj } from '@celleb/js-utils/obj';
-//or
 import obj from '@celleb/js-utils/obj';
 // or
 import { obj } from '@celleb/js-utils';
@@ -199,8 +193,6 @@ Additional utils
 Usage:
 
 ```javascript
-import { utils } from '@celleb/js-utils/utils';
-//or
 import utils from '@celleb/js-utils/utils';
 // or
 import { utils } from '@celleb/js-utils';
@@ -219,7 +211,7 @@ clone({ id: 3 }); // {id: 3}
 
 #### compare
 
-Returns true when the `stringify` value of to items are identical.
+Returns `true` when the `stringify` value of two items are identical.
 
 Example
 
