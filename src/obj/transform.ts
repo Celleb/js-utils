@@ -19,6 +19,13 @@ export function shallowTransform<I extends Record<string, any>, D extends Record
     return Object.keys(input)
         .map((key) => [dictionary[key] || key, key])
         .reduce((agg, [key, org]) => ({ ...agg, [key]: input[org] }), {}) as {
-        [P in D[keyof I]]: I[P];
-    };
+            [P in D[keyof I]]: I[P];
+        };
+}
+
+export function swapKeysAndValues<O extends Record<string, string>>(obj: O): { [P in O[keyof O]]: string } {
+    return Object
+        .entries(obj)
+        .map(([key, value]) => ([value, key]))
+        .reduce((agg, [key, value]) => ({ ...agg, [key]: value }), {}) as { [P in O[keyof O]]: string };
 }

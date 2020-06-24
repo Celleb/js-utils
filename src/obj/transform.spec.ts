@@ -7,7 +7,7 @@
  * @license MIT
  */
 
-import { shallowTransform } from './transform';
+import { shallowTransform, swapKeysAndValues } from './transform';
 
 describe('shallowTransform', () => {
     it('must be defined', () => {
@@ -27,5 +27,25 @@ describe('shallowTransform', () => {
             'activities.items': ['1'],
         };
         expect(shallowTransform(input, dictionary)).toEqual(expected);
+    });
+});
+
+describe('swapKeysAndValues', () => {
+    it('must be defined', () => {
+        expect(swapKeysAndValues).toBeDefined;
+    });
+
+    it('swaps the keys and values of the given object', () => {
+        const input = {
+            name: 'firstName',
+            surname: 'lastName',
+        };
+
+        const expected = {
+            firstName: 'name',
+            lastName: 'surname',
+        };
+
+        expect(swapKeysAndValues(input)).toEqual(expected);
     });
 });
