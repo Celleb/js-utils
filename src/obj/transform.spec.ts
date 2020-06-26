@@ -7,7 +7,7 @@
  * @license MIT
  */
 
-import { shallowTransform, swapKeysAndValues } from './transform';
+import { shallowTransform, swapKeysAndValues, shallowToDeepTransform } from './transform';
 
 describe('shallowTransform', () => {
     it('must be defined', () => {
@@ -27,6 +27,78 @@ describe('shallowTransform', () => {
             'activities.items': ['1'],
         };
         expect(shallowTransform(input, dictionary)).toEqual(expected);
+    });
+});
+
+describe('shallowToDeepTransform', () => {
+    it('must be defined', () => {
+        expect(shallowToDeepTransform).toBeDefined;
+    });
+
+    it('returns a deep transformed object from a shallow dictionary', () => {
+        const input = {
+            id: 5,
+            city: 'Oshakati',
+            spots: {
+                it: 1,
+                is: 2,
+            },
+        };
+        const dictionary = {
+            id: 'userId',
+            city: 'state',
+            'spots.it': 'activities.items',
+            'spots.is': 'activities.me',
+        };
+        const expected = {
+            userId: 5,
+            state: 'Oshakati',
+            activities: {
+                items: 1,
+                me: 2,
+            },
+        };
+        const results = shallowToDeepTransform(input, dictionary);
+        expect(results).toEqual(expected);
+    });
+
+    it('returns a deep transformed object from a shallow dictionary', () => {
+        const input = {
+            id: 5,
+            city: 'Oshakati',
+            spots: [
+                {
+                    it: 1,
+                    is: 2,
+                },
+                {
+                    it: 4,
+                    is: 4,
+                },
+            ],
+        };
+        const dictionary = {
+            id: 'userId',
+            city: 'state',
+            'spots.it': 'activities.items',
+            'spots.is': 'activities.me',
+        };
+        const expected = {
+            userId: 5,
+            state: 'Oshakati',
+            activities: [
+                {
+                    items: 1,
+                    me: 2,
+                },
+                {
+                    items: 4,
+                    me: 4,
+                },
+            ],
+        };
+        const results = shallowToDeepTransform(input, dictionary);
+        expect(results).toEqual(expected);
     });
 });
 
