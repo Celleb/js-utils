@@ -4,7 +4,7 @@
   "description": "Typescript/Javascript utils",
   "main": " ",
   "scripts": {
-    "build": "rm -rf dist/* && npx tsc",
+    "build": "rm -rf dist/* && npx tsc && npm run package",
     "build:watch": "npx tsc --watch",
     "package": "node ./scripts/override-package.js",
     "preversion": "npm run test",
