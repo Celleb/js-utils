@@ -1,6 +1,6 @@
 # js-utils
 
-Javascript/Typescript utilities
+Typescript/Javascript utilities for arrays, objects, collections and more.
 
 ## Getting started
 
@@ -184,6 +184,31 @@ import { shallowTransform } from '@celleb/js-utils/obj';
 const input = { town: 'Windhoek', state: 'Namibia' };
 const dictionary = { town: 'city', state: 'country' };
 shallowTransform(input, dictionary); // {city: 'Windhoek', country: 'Namibia'}
+```
+
+#### swapKeysAndValues
+
+Swaps keys with values in a shallow dictionary.
+
+Example
+
+```javascript
+import { swapKeysAndValues } from '@celleb/js-utils/obj';
+const dictionary = { town: 'city', state: 'country' };
+swapKeysAndValues(dictionary); // {city: 'town', country: 'state'}
+```
+
+#### shallowToDeepTransform
+
+Transforms the input keys to those in a shallow dictionary
+
+Example
+
+```javascript
+import { shallowToDeepTransform } from '@celleb/js-utils/obj';
+const input = { town: 'Windhoek', state: 'Namibia', cood: { lat: 1, lon: 2 } };
+const dictionary = { town: 'city', state: 'country', 'cood.lat': 'point.x', 'cood.lon': 'point.y' };
+shallowToDeepTransform(input, dictionary); // {city: 'Windhoek', country: 'Namibia', point: {x: 1, y: 2} }
 ```
 
 ### utils
