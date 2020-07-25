@@ -48,25 +48,18 @@ export function shallowToDeepTransform<
             const [p, c] = key.split(/\.(.+)/);
             if (input[p] instanceof Object) {
                 const [parent, child] = dictionary[key].split(/\.(.+)/);
-                if (!obj[parent]) {
-                    if (Array.isArray(input[p])) {
-                        obj[parent] = [];
-                    } else {
-                        obj[parent] = {};
-                    }
-                }
                 if (Array.isArray(input[p])) {
                     obj[parent] = input[p].map((item: Record<string, any>, i: number) =>
                         Object.assign(
                             {},
-                            obj[parent][i],
+                            obj[parent] ? obj[parent][i] : {},
                             shallowToDeepTransform(item, { [c]: child })
                         )
                     );
                 } else {
                     obj[parent] = Object.assign(
                         {},
-                        obj[parent],
+                        obj[parent] || {},
                         shallowToDeepTransform(input[p], { [c]: child })
                     );
                 }

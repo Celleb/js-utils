@@ -1,5 +1,7 @@
 # js-utils
 
+![Build](https://github.com/Celleb/js-utils/workflows/Build/badge.svg) ![Test](https://github.com/Celleb/js-utils/workflows/Test/badge.svg)
+
 Typescript/Javascript utilities for arrays, objects, collections and more.
 
 ## Getting started
